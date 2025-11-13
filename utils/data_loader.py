@@ -11,21 +11,18 @@ class DataLoader:
     """Handles loading Netflix dataset from Kaggle"""
     
     def __init__(self):
-        self.dataset_options = [
-            "Netflix Movies & TV Shows (Kaggle)"
-        ]
+        pass
     
     def load_data(self):
         """
-        Load dataset based on user selection
+        Load Netflix dataset
         
         Returns:
             tuple: (dataframe, dataset_info, dataset_type)
         """
-        dataset_option = st.sidebar.selectbox(
-            "📁 Select Dataset:",
-            self.dataset_options
-        )
+        # Display dataset info in sidebar
+        st.sidebar.markdown("### 📁 Dataset")
+        st.sidebar.info("Netflix Movies & TV Shows (Kaggle)")
         
         return self._load_netflix_dataset()
     
