@@ -8,12 +8,11 @@ import os
 
 
 class DataLoader:
-    """Handles loading data from Kaggle dataset or custom CSV"""
+    """Handles loading Netflix dataset from Kaggle"""
     
     def __init__(self):
         self.dataset_options = [
-            "Netflix Movies & TV Shows (Kaggle)",
-            "Upload Your Own CSV"
+            "Netflix Movies & TV Shows (Kaggle)"
         ]
     
     def load_data(self):
@@ -28,17 +27,20 @@ class DataLoader:
             self.dataset_options
         )
         
-        if dataset_option == "Netflix Movies & TV Shows (Kaggle)":
-            return self._load_netflix_dataset()
-        else:
-            return self._load_custom_csv()
+        return self._load_netflix_dataset()
     
     def _load_netflix_dataset(self):
         """Load Netflix dataset from uploaded CSV file"""
         try:
             # Try to find the dataset in common locations
-            possible_paths = ['data/netflix_titles.csv']
-
+            possible_paths = [
+                '/mnt/user-data/uploads/netflix_titles.csv',  # Uploaded file location
+                'netflix_titles.csv',
+                'data/netflix_titles.csv',
+                '../netflix_titles.csv',
+                './netflix_titles.csv'
+            ]
+            
             df = None
             found_path = None
             
@@ -53,15 +55,10 @@ class DataLoader:
                 st.info("""
                 📥 **How to get the dataset:**
                 
-                **Option 1: Download from Kaggle**
-                1. Go to Kaggle: https://www.kaggle.com/datasets/shivamb/netflix-shows
-                2. Click "Download" button (you may need to sign in)
-                3. Extract the `netflix_titles.csv` file
-                4. Place it in the same folder as `app.py`
-                5. Refresh this page
-                
-                **Option 2: Upload directly**
-                Use the "Upload Your Own CSV" option in the sidebar!
+                1. Download from Kaggle: https://www.kaggle.com/datasets/shivamb/netflix-shows
+                2. Extract the `netflix_titles.csv` file
+                3. Place it in the same folder as `app.py` or in `/mnt/user-data/uploads/`
+                4. Refresh this page
                 """)
                 return None, None, None
             
@@ -82,20 +79,5 @@ class DataLoader:
             
         except Exception as e:
             st.error(f"Failed to load Netflix dataset: {str(e)}")
-            st.info("💡 Try using the 'Upload Your Own CSV' option instead!")
+            st.info("💡 Please ensure the netflix_titles.csv file is in the correct location.")
             return None, None, None
-    
-    def _load_custom_csv(self):
-        """Load custom CSV file uploaded by user"""
-        uploaded_file = st.sidebar.file_uploader("Choose a CSV file", type="csv")
-        
-        if uploaded_file is not None:
-            try:
-                df = pd.read_csv(uploaded_file)
-                info = f"Uploaded dataset: {uploaded_file.name}"
-                return df, info, "custom"
-            except Exception as e:
-                st.error(f"Error reading CSV file: {str(e)}")
-                return None, None, None
-        
-        return None, None, None
