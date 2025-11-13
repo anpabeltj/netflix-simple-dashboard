@@ -2,6 +2,16 @@
 
 An interactive Streamlit web application for visualizing Netflix Movies & TV Shows data from Kaggle.
 
+**🌐 Live Demo:** [https://netflix-simple-dashboard.streamlit.app/](https://netflix-simple-dashboard.streamlit.app/)
+
+---
+
+## 🌐 Live Demo
+
+**🔗 [View Live Application](https://netflix-simple-dashboard.streamlit.app/)**
+
+Try the app now - no installation required!
+
 ## 📁 Project Structure
 
 ```
