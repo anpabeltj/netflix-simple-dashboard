@@ -24,7 +24,7 @@ netflix-streamlit-visualization/
 
 ### Assignment Requirements Met:
 
-- ✅ **Dataset**: Netflix Movies & TV Shows from [Kaggle](https://www.kaggle.com/datasets/shivamb/netflix-shows)
+- ✅ **Dataset**: Netflix Movies & TV Shows from [Kaggle](https://www.kaggle.com/datasets/shivamb/netflix-shows) (loads automatically)
 - ✅ **Filters**: Selectbox, Slider, and Multiselect filters
 - ✅ **Visualizations**: Bar Chart, Histogram, Pie Chart, World Map
 - ✅ **Data Summary**: st.metric() and st.dataframe()
@@ -69,7 +69,7 @@ The app will automatically open at `http://localhost:8501`
 
 ## 🎯 How to Use
 
-1. **View Dataset**: Netflix dataset loads automatically
+1. **Dataset Loads Automatically**: Netflix dataset (8,807 titles) loads when app starts
 2. **Apply Filters**: Use sidebar to filter by content type, rating, and release year
 3. **Explore Visualizations**:
    - 📊 Bar Chart - Movies vs TV Shows
