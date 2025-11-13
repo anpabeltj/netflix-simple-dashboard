@@ -69,7 +69,7 @@ The app will automatically open at `http://localhost:8501`
 
 ## 🎯 How to Use
 
-1. **Select Dataset**: Choose Netflix dataset or upload your own CSV
+1. **View Dataset**: Netflix dataset loads automatically
 2. **Apply Filters**: Use sidebar to filter by content type, rating, and release year
 3. **Explore Visualizations**:
    - 📊 Bar Chart - Movies vs TV Shows
